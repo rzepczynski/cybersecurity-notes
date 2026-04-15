@@ -7,6 +7,8 @@ Co zrobiłem:
 Wyniki:
 - port 22 (SSH) – otwarty
 - port 80 (HTTP) – otwarty
+- port 9929 – otwarty
+- port 31337 – otwarty
 
 ## Wnioski:
-Serwer udostępnia podstawowe usługi
+Serwer posiada kilka otwartych portów, które mogą umożliwiać różne usługi
