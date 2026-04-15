@@ -16,7 +16,7 @@ Serwer posiada kilka otwartych portów, które mogą umożliwiać różne usług
 Kolejny skan:
 
 Użyłem komendy: 
-nmap -sV scanme.nmap.org
+- nmap -sV scanme.nmap.org
 
 Wniosek:
 Można sprawdzić jakie dokładnie usługi działają na portach
