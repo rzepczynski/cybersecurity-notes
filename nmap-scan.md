@@ -109,4 +109,4 @@ polegający na zbieraniu informacji o celu (np. otwarte porty, usługi, systemy)
 
 ## Dowód
 
-<img width="1902" height="1052" alt="image" src="https://github.com/user-attachments/assets/a0a0dd6f-6a85-4ef5-be11-8609eb58cd64" />
+<img width="1902" height="1052" alt="image" src="https://github.com/user-attachments/assets/5a8e53cc-cf7e-4dd0-92e1-321a8ef9da6d" />
