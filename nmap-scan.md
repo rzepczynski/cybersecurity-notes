@@ -10,7 +10,7 @@ Wyniki:
 - port 9929 – otwarty
 - port 31337 – otwarty
 
-## Wnioski:
+Wnioski:
 Serwer posiada kilka otwartych portów, które mogą umożliwiać różne usługi
 
 Kolejny skan:
