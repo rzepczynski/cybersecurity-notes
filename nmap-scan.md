@@ -12,3 +12,11 @@ Wyniki:
 
 ## Wnioski:
 Serwer posiada kilka otwartych portów, które mogą umożliwiać różne usługi
+
+Kolejny skan:
+
+Użyłem komendy: 
+nmap -sV scanme.nmap.org
+
+Wniosek:
+Można sprawdzić jakie dokładnie usługi działają na portach
