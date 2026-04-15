@@ -53,3 +53,20 @@ Czego się nauczyłem
 * jak używać Nmap
 * czym są porty i usługi
 * jak interpretować wyniki skanowania
+
+Potencjalne ryzyka
+
+Port 22 (SSH)
+
+* możliwość prób brute-force (ataków na hasło)
+* dostęp do systemu jeśli dane logowania zostaną złamane
+
+Port 80 (HTTP)
+
+* możliwość analizy strony (np. podatności webowe)
+* potencjalne ataki typu XSS / SQL Injection
+
+Porty 9929 i 31337
+
+* niestandardowe usługi mogą być podatne na błędy
+* trudniejsze do wykrycia → często ciekawsze dla pentestera
