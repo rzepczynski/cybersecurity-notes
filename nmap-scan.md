@@ -1,72 +1,111 @@
-Nmap Scan – scanme.nmap.org
+# Nmap Scan – scanme.nmap.org
 
-Cel
+## Cel
 
-Celem było przeskanowanie serwera w celu wykrycia otwartych portów i usług.
+Celem było przeskanowanie serwera w celu wykrycia otwartych portów oraz identyfikacji usług działających na tych portach.
 
-Narzędzie
+---
 
-* Nmap
+## Narzędzie
 
-Wykonane komendy
-- nmap scanme.nmap.org
-- nmap -sV scanme.nmap.org
+* Nmap – narzędzie do skanowania sieci i rekonesansu
 
-Wyniki
+---
 
-Otwarty port 22
+## Wykonane komendy
 
-* Usługa: SSH
+```bash
+nmap scanme.nmap.org
+nmap -sV scanme.nmap.org
+nmap -sS -sV scanme.nmap.org
+```
+
+---
+
+## Wyniki skanowania
+
+### Port 22 – SSH
+
+* Status: otwarty
 * Opis: umożliwia zdalne logowanie do serwera
 
-Otwarty port 80
+### Port 80 – HTTP
 
-* Usługa: HTTP
+* Status: otwarty
 * Opis: serwer udostępnia stronę internetową
 
-Otwarty port 9929
+### Port 9929
 
-* Usługa: nieznana / niestandardowa
-* Opis: może być używana do testów lub niestandardowych aplikacji
+* Status: otwarty
+* Opis: niestandardowa usługa (może być używana do testów)
 
-Otwarty port 31337
+### Port 31337
 
-* Usługa: niestandardowa
-* Opis: często używany port testowy / hackerski (leet)
+* Status: otwarty
+* Opis: niestandardowy port (często używany w środowiskach testowych)
 
-Dodatkowa analiza (-sV)
+---
+
+## Analiza (-sV)
 
 Polecenie:
-- nmap -sV scanme.nmap.org
 
-Pozwala sprawdzić dokładne wersje usług działających na portach.
+```bash
+nmap -sV scanme.nmap.org
+```
 
-Wnioski
+Pozwala określić dokładne wersje usług działających na portach.
 
-* Serwer posiada kilka otwartych portów
-* Najważniejsze usługi to SSH i HTTP
-* Dodatkowe porty mogą stanowić potencjalne ryzyko bezpieczeństwa
-* Skanowanie portów to pierwszy krok w procesie rekonesansu (recon)
+---
 
-Czego się nauczyłem
+## Stealth scan (-sS)
 
-* jak używać Nmap
+Polecenie:
+
+```bash
+nmap -sS -sV scanme.nmap.org
+```
+
+* tzw. "SYN scan"
+* mniej wykrywalny niż standardowy scan
+* używany w testach penetracyjnych
+
+---
+
+## Potencjalne ryzyka
+
+### Port 22 (SSH)
+
+* możliwość ataków brute-force (zgadywanie haseł)
+* potencjalny dostęp do systemu po uzyskaniu danych logowania
+
+### Port 80 (HTTP)
+
+* możliwość znalezienia podatności webowych
+* potencjalne ataki: XSS, SQL Injection
+
+### Porty 9929 i 31337
+
+* niestandardowe usługi mogą zawierać błędy
+* często są interesujące z punktu widzenia pentestera
+
+---
+
+## Co to jest rekonesans (Recon)
+
+Rekonesans to pierwszy etap testów bezpieczeństwa,
+polegający na zbieraniu informacji o celu (np. otwarte porty, usługi, systemy).
+
+---
+
+## Czego się nauczyłem
+
+* jak używać narzędzia Nmap
 * czym są porty i usługi
-* jak interpretować wyniki skanowania
+* jak analizować wyniki skanowania
+* czym jest rekonesans w cyberbezpieczeństwie
 
-Potencjalne ryzyka
+---
 
-Port 22 (SSH)
+## Dowód
 
-* możliwość prób brute-force (ataków na hasło)
-* dostęp do systemu jeśli dane logowania zostaną złamane
-
-Port 80 (HTTP)
-
-* możliwość analizy strony (np. podatności webowe)
-* potencjalne ataki typu XSS / SQL Injection
-
-Porty 9929 i 31337
-
-* niestandardowe usługi mogą być podatne na błędy
-* trudniejsze do wykrycia → często ciekawsze dla pentestera
