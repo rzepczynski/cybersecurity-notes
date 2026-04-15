@@ -1,22 +1,55 @@
-Skanowanie nmap
+Nmap Scan – scanme.nmap.org
 
-Co zrobiłem:
-- zainstalowałem nmap
-- wykonałem skan scanme.nmap.org
+Cel
 
-Wyniki:
-- port 22 (SSH) – otwarty
-- port 80 (HTTP) – otwarty
-- port 9929 – otwarty
-- port 31337 – otwarty
+Celem było przeskanowanie serwera w celu wykrycia otwartych portów i usług.
 
-Wnioski:
-Serwer posiada kilka otwartych portów, które mogą umożliwiać różne usługi
+Narzędzie
 
-Kolejny skan:
+* Nmap
 
-Użyłem komendy: 
+Wykonane komendy
+- nmap scanme.nmap.org
 - nmap -sV scanme.nmap.org
 
-Wniosek:
-Można sprawdzić jakie dokładnie usługi działają na portach
+Wyniki
+
+Otwarty port 22
+
+* Usługa: SSH
+* Opis: umożliwia zdalne logowanie do serwera
+
+Otwarty port 80
+
+* Usługa: HTTP
+* Opis: serwer udostępnia stronę internetową
+
+Otwarty port 9929
+
+* Usługa: nieznana / niestandardowa
+* Opis: może być używana do testów lub niestandardowych aplikacji
+
+Otwarty port 31337
+
+* Usługa: niestandardowa
+* Opis: często używany port testowy / hackerski (leet)
+
+Dodatkowa analiza (-sV)
+
+Polecenie:
+- nmap -sV scanme.nmap.org
+
+Pozwala sprawdzić dokładne wersje usług działających na portach.
+
+Wnioski
+
+* Serwer posiada kilka otwartych portów
+* Najważniejsze usługi to SSH i HTTP
+* Dodatkowe porty mogą stanowić potencjalne ryzyko bezpieczeństwa
+* Skanowanie portów to pierwszy krok w procesie rekonesansu (recon)
+
+Czego się nauczyłem
+
+* jak używać Nmap
+* czym są porty i usługi
+* jak interpretować wyniki skanowania
