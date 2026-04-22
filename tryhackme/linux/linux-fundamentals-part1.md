@@ -22,7 +22,7 @@ find -name note.txt
 
 ## Przykładowe wyniki i opis
 
-###Polecenie	Opis
+### Polecenie	Opis
 * whoami -	Wyświetla aktualnego użytkownika (np. tryhackme)
 * pwd -	Pokazuje aktualny katalog roboczy
 * ls -	Wyświetla pliki i foldery w katalogu
@@ -31,16 +31,16 @@ find -name note.txt
 
 ---
 
-##Analiza
+## Analiza
 
-###Powyższe polecenia przedstawiają podstawową pracę z systemem Linux i terminalem:
+### Powyższe polecenia przedstawiają podstawową pracę z systemem Linux i terminalem:
 
 * Nawigacja po katalogach za pomocą cd
 * Sprawdzanie zawartości katalogów (ls)
 * Odczytywanie plików (cat)
 * Wyszukiwanie plików w systemie (find)
 
-Są to fundamentalne umiejętności wykorzystywane w:
+### Są to fundamentalne umiejętności wykorzystywane w:
 
 * administracji systemami Linux
 * testach penetracyjnych (pentesting)
@@ -48,7 +48,7 @@ Są to fundamentalne umiejętności wykorzystywane w:
 
 ---
 
-##Znaczenie dla bezpieczeństwa
+## Znaczenie dla bezpieczeństwa
 
 * Znajomość struktury systemu plików pozwala szybciej odnaleźć wrażliwe dane
 * Polecenie find może zostać użyte do odkrywania ukrytych lub istotnych plików
@@ -56,7 +56,7 @@ Są to fundamentalne umiejętności wykorzystywane w:
 
 ---
 
-##Czego się nauczyłem
+## Czego się nauczyłem
 
 * poruszania się po systemie plików Linux
 * odczytywania zawartości plików
@@ -65,4 +65,4 @@ Są to fundamentalne umiejętności wykorzystywane w:
 
 ---
 
-##Dowód wykonania
+## Dowód wykonania
