@@ -66,3 +66,4 @@ find -name note.txt
 ---
 
 ## Dowód wykonania
+<img width="931" height="351" alt="linux-part1" src="https://github.com/user-attachments/assets/6e3f4d96-2149-48ab-a46e-a79b72e88a36" />
