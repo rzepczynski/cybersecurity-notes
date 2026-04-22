@@ -78,9 +78,9 @@ find / -type f -name "*.txt" 2>/dev/null
 
 ### Może to pomóc w znalezieniu:
 
-*plików z hasłami
-*notatek administratora
-*backupów zawierających dane
+* plików z hasłami
+* notatek administratora
+* backupów zawierających dane
 
 ---
 
