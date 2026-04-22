@@ -22,7 +22,7 @@ find -name note.txt
 
 ## Przykładowe wyniki i opis
 
-Polecenie	Opis
+###Polecenie	Opis
 * whoami -	Wyświetla aktualnego użytkownika (np. tryhackme)
 * pwd -	Pokazuje aktualny katalog roboczy
 * ls -	Wyświetla pliki i foldery w katalogu
@@ -33,7 +33,7 @@ Polecenie	Opis
 
 ##Analiza
 
-Powyższe polecenia przedstawiają podstawową pracę z systemem Linux i terminalem:
+###Powyższe polecenia przedstawiają podstawową pracę z systemem Linux i terminalem:
 
 * Nawigacja po katalogach za pomocą cd
 * Sprawdzanie zawartości katalogów (ls)
