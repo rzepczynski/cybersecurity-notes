@@ -48,11 +48,39 @@ find -name note.txt
 
 ---
 
+## Przykład użycia (praktyka)
+
+### Wyszukiwanie pliku note.txt w całym systemie:
+
+```bash
+find / -name note.txt 2>/dev/null
+```
+
+### Co robi to polecenie:
+
+* przeszukuje cały system plików (/)
+* ignoruje błędy związane z brakiem uprawnień (2>/dev/null)
+* pozwala szybko znaleźć interesujące pliki
+
+---
+
 ## Znaczenie dla bezpieczeństwa
 
 * Znajomość struktury systemu plików pozwala szybciej odnaleźć wrażliwe dane
 * Polecenie find może zostać użyte do odkrywania ukrytych lub istotnych plików
 * Błędnie ustawione uprawnienia mogą prowadzić do ujawnienia krytycznych informacji
+
+### Przykład użycia w kontekście security:
+
+```bash
+find / -type f -name "*.txt" 2>/dev/null
+```
+
+### Może to pomóc w znalezieniu:
+
+*plików z hasłami
+*notatek administratora
+*backupów zawierających dane
 
 ---
 
