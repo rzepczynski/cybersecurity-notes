@@ -1,32 +1,34 @@
 # Linux Fundamentals Part 2
 
 ## Wprowadzenie
-
-W tej części kontynuowałem naukę systemu Linux w kontekście cyberbezpieczeństwa. Skupiłem się na pracy zdalnej (SSH), analizie systemu oraz eksploracji katalogów istotnych z punktu widzenia bezpieczeństwa.
+W tej części kontynuowałem naukę systemu Linux, skupiając się na praktycznym wykorzystaniu w kontekście cyberbezpieczeństwa.  
+Ćwiczenia wykonywałem na maszynie wirtualnej.
 
 ---
 
-## Połączenie z maszyną przez SSH
+## Połączenie przez SSH
 
-Połączyłem się z maszyną zdalnie używając SSH:
+Połączyłem się z maszyną zdalnie:
 
 ```bash
-ssh username@ip_address
+ssh tryhackme@10.114.177.166
 ```
 
 Po wpisaniu hasła uzyskałem dostęp do systemu.
 
-### Czego się nauczyłem:
+<img width="957" height="962" alt="1" src="https://github.com/user-attachments/assets/59e0d121-643d-4213-aea4-130151954df9" />
 
-* SSH umożliwia zdalne zarządzanie serwerem
-* połączenie jest szyfrowane
-* jest to standard w pracy administratorów i w pentestach
+
+### Wnioski:
+- SSH służy do zdalnego zarządzania systemami
+- połączenie jest szyfrowane
+- używane w pracy administratora i pentestera
 
 ---
 
-## Analiza poleceń i flag
+## Praca z poleceniami i flagami
 
-Sprawdzałem rozszerzone opcje poleceń:
+Testowałem różne opcje polecenia `ls`:
 
 ```bash
 ls -lh
@@ -34,28 +36,17 @@ ls -R
 ls -lt
 ```
 
-Dodatkowo użyłem:
-
-```bash
-man ls
-```
+<img width="958" height="929" alt="2" src="https://github.com/user-attachments/assets/7ce31c75-ab5a-4aac-90d0-1b7edfb0ffa3" />
 
 ### Wnioski:
-
-* `-h` → czytelne rozmiary plików
-* `-R` → przeglądanie całej struktury katalogów
-* `-t` → sortowanie po czasie
-
-### Czego się nauczyłem:
-
-* znajomość flag przyspiesza pracę
-* dokumentacja (`man`) to podstawowe źródło wiedzy
+- flagi zmieniają sposób wyświetlania danych
+- znajomość flag przyspiesza pracę
 
 ---
 
-## Analiza systemu plików
+## Analiza plików
 
-Użyłem narzędzi do analizy plików:
+Użyłem narzędzi do sprawdzania plików:
 
 ```bash
 tree
@@ -64,17 +55,11 @@ file file.txt
 history
 ```
 
-### Co zrobiłem:
-
-* zobaczyłem strukturę katalogów (`tree`)
-* sprawdziłem szczegóły pliku (`stat`)
-* określiłem typ pliku (`file`)
-* przeanalizowałem historię poleceń (`history`)
+<img width="958" height="960" alt="3" src="https://github.com/user-attachments/assets/ae3550cb-b956-487d-8cce-7d675f92a7fb" />
 
 ### Wnioski:
-
-* można analizować pliki bez ich otwierania
-* historia poleceń może być użyta do analizy działań użytkownika
+- można analizować pliki bez ich otwierania
+- historia poleceń pokazuje działania użytkownika
 
 ---
 
@@ -87,81 +72,48 @@ whoami
 id
 ```
 
-### Co zrobiłem:
-
-* sprawdziłem aktualnego użytkownika
-* zobaczyłem grupy użytkownika
+<img width="960" height="959" alt="4" src="https://github.com/user-attachments/assets/da5cad60-4e52-43e7-b48e-2741d5236ebe" />
 
 ### Wnioski:
-
-* dostęp do systemu zależy od użytkownika i grup
-* ważne w kontekście privilege escalation
+- użytkownik i grupy określają dostęp
+- ważne w kontekście privilege escalation
 
 ---
 
 ## Eksploracja systemu
 
-Przeglądałem kluczowe katalogi:
+Sprawdziłem ważne katalogi:
 
 ```bash
 cd /var/log
 ls -lh
 
-cd /etc
-ls
-
 cd /tmp
 ls
 ```
 
-### Co zauważyłem:
+<img width="958" height="961" alt="5" src="https://github.com/user-attachments/assets/da2e9ee6-1dca-4a5f-8d45-5101c4ece447" />
 
-* `/var/log` → zawiera logi systemowe
-* `/etc` → pliki konfiguracyjne
-* `/tmp` → pliki tymczasowe
-
-### Wnioski (cybersecurity):
-
-* logi są kluczowe w analizie incydentów
-* `/tmp` może być używany przez malware
-* konfiguracja systemu często zawiera wrażliwe dane
-
----
-
-## Zastosowanie w cyberbezpieczeństwie
-
-Wykorzystanie tych umiejętności:
-
-* analiza systemu po uzyskaniu dostępu
-* szukanie podatności
-* analiza logów
-* wykrywanie podejrzanych działań
+### Wnioski:
+- `/var/log` zawiera logi systemowe
+- `/tmp` często używany w atakach
 
 ---
 
 ## Podsumowanie
 
-### Umiejętności:
+### Zdobyte umiejętności:
 
-* zdalne łączenie się przez SSH
-* używanie zaawansowanych opcji poleceń
-* analiza plików i systemu
-* rozumienie użytkowników i uprawnień
-* eksploracja katalogów systemowych
+- korzystanie z SSH
+- używanie zaawansowanych flag
+- analiza plików
+- sprawdzanie użytkowników i grup
+- znajomość struktury systemu
 
 ---
 
 ## Wnioski końcowe
 
-Ta część pomogła mi zrozumieć:
+Ta część pozwoliła mi lepiej zrozumieć praktyczne działanie Linuxa oraz jego znaczenie w cyberbezpieczeństwie.
 
-* jak działa Linux w praktyce
-* gdzie znajdują się ważne dane systemowe
-* jak analizować system z perspektywy bezpieczeństwa
-
----
-
-## Dowód wykonania
-<img width="956" height="930" alt="3" src="https://github.com/user-attachments/assets/2ecdbf59-c9c0-4ed1-a240-b9361b8505a3" />
-<img width="956" height="968" alt="2" src="https://github.com/user-attachments/assets/f7d14810-c41c-4773-8a91-34c7b85adc1b" />
-<img width="955" height="960" alt="1" src="https://github.com/user-attachments/assets/0631be3d-c726-4c38-b947-be827e1d0113" />
+Wszystkie zadania wykonałem samodzielnie na maszynie wirtualnej.
