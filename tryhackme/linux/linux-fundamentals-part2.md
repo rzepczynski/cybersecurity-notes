@@ -161,3 +161,7 @@ Ta część pomogła mi zrozumieć:
 
 ---
 
+## Dowód wykonania
+<img width="956" height="930" alt="3" src="https://github.com/user-attachments/assets/2ecdbf59-c9c0-4ed1-a240-b9361b8505a3" />
+<img width="956" height="968" alt="2" src="https://github.com/user-attachments/assets/f7d14810-c41c-4773-8a91-34c7b85adc1b" />
+<img width="955" height="960" alt="1" src="https://github.com/user-attachments/assets/0631be3d-c726-4c38-b947-be827e1d0113" />
