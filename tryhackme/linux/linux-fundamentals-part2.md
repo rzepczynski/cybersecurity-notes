@@ -16,6 +16,7 @@ ssh tryhackme@10.114.177.166
 
 Po wpisaniu hasła uzyskałem dostęp do systemu.
 
+### Dowód:
 <img width="957" height="962" alt="1" src="https://github.com/user-attachments/assets/59e0d121-643d-4213-aea4-130151954df9" />
 
 
@@ -35,7 +36,7 @@ ls -lh
 ls -R
 ls -lt
 ```
-
+### Dowód:
 <img width="958" height="929" alt="2" src="https://github.com/user-attachments/assets/7ce31c75-ab5a-4aac-90d0-1b7edfb0ffa3" />
 
 ### Wnioski:
@@ -54,7 +55,7 @@ stat file.txt
 file file.txt
 history
 ```
-
+### Dowód:
 <img width="958" height="960" alt="3" src="https://github.com/user-attachments/assets/ae3550cb-b956-487d-8cce-7d675f92a7fb" />
 
 ### Wnioski:
@@ -71,7 +72,7 @@ Sprawdziłem informacje o użytkowniku:
 whoami
 id
 ```
-
+### Dowód:
 <img width="960" height="959" alt="4" src="https://github.com/user-attachments/assets/da5cad60-4e52-43e7-b48e-2741d5236ebe" />
 
 ### Wnioski:
