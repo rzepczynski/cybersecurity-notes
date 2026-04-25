@@ -14,6 +14,8 @@
 ### Wnioski:
 Poruszanie się po systemie odbywa się przez terminal
 
+---
+
 ## Pliki i foldery
 
 ### Komendy:
@@ -29,6 +31,8 @@ Poruszanie się po systemie odbywa się przez terminal
 ### Wnioski:
 Można zarządzać plikami przez terminal
 
+---
+
 ## Uprawnienia
 
 ### Komendy:
@@ -42,6 +46,8 @@ Można zarządzać plikami przez terminal
 ### Wnioski:
 Linux kontroluje dostęp do plików
 
+---
+
 ## Użytkownicy
 
 ### Komendy:
@@ -54,6 +60,8 @@ Linux kontroluje dostęp do plików
 
 ### Wnioski:
 Niektóre operacje wymagają uprawnień administratora
+
+---
 
 ## Sieć
 
