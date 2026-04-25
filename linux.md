@@ -2,7 +2,7 @@
 ## Nawigacja
 
 ### Komendy:
-* ls – lista plików
+- ls – lista plików
 - cd – zmiana katalogu
 - pwd – aktualna ścieżka
 
