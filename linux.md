@@ -1,67 +1,67 @@
-Linux podstawy
-1. Nawigacja
+# Linux podstawy
+## Nawigacja
 
-Komendy:
+### Komendy:
 - ls – lista plików
 - cd – zmiana katalogu
 - pwd – aktualna ścieżka
 
-Co zrobiłem:
+### Co zrobiłem:
 - sprawdziłem gdzie jestem (pwd)
 - wyświetliłem pliki (ls)
 - przeszedłem do innego katalogu
 
-Wnioski:
+### Wnioski:
 Poruszanie się po systemie odbywa się przez terminal
 
-2. Pliki i foldery
+## Pliki i foldery
 
-Komendy:
+### Komendy:
 - mkdir – tworzenie folderu
 - touch – tworzenie pliku
 - rm – usuwanie pliku
 
-Co zrobiłem:
+### Co zrobiłem:
 - stworzyłem folder
 - stworzyłem plik
 - usunąłem plik
 
-Wnioski:
+### Wnioski:
 Można zarządzać plikami przez terminal
 
-3. Uprawnienia
+## Uprawnienia
 
-Komendy:
+### Komendy:
 - ls -l – pokazuje uprawnienia
 - chmod – zmienia uprawnienia
 
-Co zrobiłem:
+### Co zrobiłem:
 - sprawdziłem uprawnienia
 - zmieniłem uprawnienia pliku
 
-Wnioski:
+### Wnioski:
 Linux kontroluje dostęp do plików
 
-4. Użytkownicy
+## Użytkownicy
 
-Komendy:
+### Komendy:
 - whoami – pokazuje użytkownika
 - sudo – wykonanie jako admin
 
-Co zrobiłem:
+### Co zrobiłem:
 - sprawdziłem użytkownika
 - użyłem sudo
 
-Wnioski:
+### Wnioski:
 Niektóre operacje wymagają uprawnień administratora
 
-5. Sieć
+## Sieć
 
-Komendy:
+### Komendy:
 - ip a – pokazuje IP
 - ping – sprawdza połączenie
 
-Co zrobiłem:
+### Co zrobiłem:
 - sprawdziłem IP
 - sprawdziłem połączenie
 
