@@ -1,191 +1,173 @@
-# Windows Fundamentals Part 1
+# Windows Fundamentals Part 1 — SOC Perspective
 
 ## Wprowadzenie
 
-W tej części zapoznałem się z podstawami systemu operacyjnego Windows. Poznałem jego edycje, interfejs graficzny, system plików, zarządzanie użytkownikami oraz najważniejsze narzędzia administracyjne. Jest to fundament niezbędny zarówno w administracji systemami, jak i cyberbezpieczeństwie.
+W tej części zapoznałem się z podstawami systemu operacyjnego Windows, jednak w podejściu ukierunkowanym na cyberbezpieczeństwo i pracę analityka SOC.
+
+Skupiłem się nie tylko na tym *czym są* poszczególne komponenty systemu, ale również:
+
+* jakie mają znaczenie w analizie incydentów,
+* jak mogą być wykorzystywane przez atakujących,
+* jakie artefakty i ślady pozostawiają w systemie.
 
 ---
 
 ## Edycje systemu Windows
 
-Poznałem najpopularniejsze edycje systemu Windows:
+Poznałem podstawowe edycje Windows:
 
-- Windows Home
-- Windows Pro
-- Windows Enterprise
-- Windows Education
+* Home
+* Pro
+* Enterprise
+* Education
 
-### Czego się nauczyłem
+### SOC perspective
 
-- Każda edycja oferuje inne funkcjonalności.
-- W środowiskach firmowych najczęściej wykorzystywane są wersje Pro oraz Enterprise.
-- Wersje biznesowe posiadają rozszerzone funkcje bezpieczeństwa i zarządzania.
+* Edycje Enterprise i Pro są najczęściej spotykane w środowiskach firmowych, czyli tam, gdzie pracuje SOC.
+* Różnice w funkcjach (np. Group Policy, BitLocker, Remote Desktop) wpływają na powierzchnię ataku.
+* Brak funkcji security w edycjach Home może ograniczać monitoring i kontrolę.
 
 ---
 
 ## Pulpit i interfejs graficzny
 
-Zapoznałem się z podstawowymi elementami graficznego interfejsu użytkownika.
+Poznałem podstawowe elementy GUI Windows:
 
-### Główne elementy
+* Start Menu
+* Taskbar
+* File Explorer
+* System tray
 
-- Pulpit
-- Menu Start
-- Pasek zadań
-- Obszar powiadomień
-- Eksplorator plików
+### SOC perspective
 
-### Czego się nauczyłem
-
-- Interfejs graficzny umożliwia intuicyjną pracę z systemem.
-- Sprawne poruszanie się po GUI jest kluczowe w codziennej pracy administratora.
+* GUI jest często pierwszym miejscem interakcji użytkownika z potencjalnie złośliwym oprogramowaniem.
+* File Explorer może być używany do uruchamiania malware (np. ukryte rozszerzenia plików).
+* Taskbar i autostart mogą zawierać persistence mechanizmy.
 
 ---
 
-## Wprowadzenie do systemu Windows
+## Podstawy działania Windows
 
-Poznałem podstawowe zadania systemu operacyjnego Windows.
+Zrozumiałem podstawowe funkcje systemu operacyjnego:
 
-### Omówione zagadnienia
+* zarządzanie procesami
+* zarządzanie pamięcią
+* obsługa sprzętu
+* interakcja z użytkownikiem
 
-- zarządzanie sprzętem i oprogramowaniem,
-- obsługa pamięci,
-- komunikacja z użytkownikiem,
-- architektura systemu.
+### SOC perspective
 
-### Czego się nauczyłem
-
-- Windows zarządza wszystkimi zasobami komputera.
-- Znajomość działania systemu jest podstawą dalszej nauki cyberbezpieczeństwa.
-
----
-
-## System plików
-
-Poznałem działanie systemu plików NTFS.
-
-### Omówione zagadnienia
-
-- pliki i katalogi,
-- litery dysków,
-- atrybuty plików,
-- uprawnienia NTFS.
-
-### Czego się nauczyłem
-
-- NTFS zapewnia zaawansowane mechanizmy bezpieczeństwa.
-- Uprawnienia odgrywają kluczową rolę w ochronie danych.
+* Procesy są kluczowe w analizie malware (process tree, parent-child relationships).
+* Zarządzanie pamięcią ma znaczenie przy analizie exploitów.
+* System jako warstwa pośrednia może ukrywać aktywność atakującego.
 
 ---
 
-## Katalog Windows\System32
+## System plików NTFS
 
-Zapoznałem się z jednym z najważniejszych katalogów w systemie Windows.
+Poznałem strukturę NTFS:
 
-### Zawartość katalogu
+* pliki i katalogi
+* atrybuty plików
+* uprawnienia ACL
+* struktura dysków
 
-- pliki systemowe,
-- biblioteki DLL,
-- narzędzia administracyjne,
-- kluczowe komponenty systemu.
+### SOC perspective
 
-### Czego się nauczyłem
-
-- System32 zawiera krytyczne elementy systemu operacyjnego.
-- Wiele narzędzi używanych w administracji i cyberbezpieczeństwie znajduje się właśnie tutaj.
-
----
-
-## Konta użytkowników, profile i uprawnienia
-
-Poznałem sposób zarządzania użytkownikami w systemie Windows.
-
-### Omówione zagadnienia
-
-- konta lokalne,
-- konta Microsoft,
-- profile użytkowników,
-- grupy zabezpieczeń,
-- uprawnienia dostępu.
-
-### Czego się nauczyłem
-
-- Uprawnienia kontrolują dostęp do zasobów.
-- Prawidłowe zarządzanie kontami jest podstawą bezpieczeństwa systemu.
+* Nieprawidłowe uprawnienia mogą umożliwić eskalację uprawnień.
+* ACL abuse może być wykorzystany do persistence.
+* NTFS może ukrywać dane (hidden files, alternate data streams).
 
 ---
 
-## Kontrola konta użytkownika (UAC)
+## Katalog System32
 
-Poznałem mechanizm zabezpieczający przed nieautoryzowanymi zmianami.
+Poznałem zawartość katalogu System32:
 
-### Funkcje UAC
+* pliki systemowe
+* biblioteki DLL
+* narzędzia administracyjne
 
-- wymaga potwierdzenia operacji administracyjnych,
-- ogranicza eskalację uprawnień,
-- chroni przed złośliwym oprogramowaniem.
+### SOC perspective
 
-### Czego się nauczyłem
-
-- UAC znacząco zwiększa bezpieczeństwo systemu.
-- Jest jednym z podstawowych mechanizmów ochronnych Windows.
-
----
-
-## Ustawienia i Panel sterowania
-
-Zapoznałem się z narzędziami konfiguracyjnymi systemu.
-
-### Obszary konfiguracji
-
-- ustawienia systemowe,
-- sieć i Internet,
-- konta użytkowników,
-- aplikacje,
-- zabezpieczenia.
-
-### Czego się nauczyłem
-
-- Zarówno Ustawienia, jak i Panel sterowania są ważnymi narzędziami administratora.
-- Nowoczesne wersje Windows coraz częściej wykorzystują aplikację Ustawienia.
+* System32 zawiera legalne narzędzia, które mogą być nadużywane (Living Off The Land Binaries - LOLBins).
+* Atakujący często wykorzystują wbudowane narzędzia Windows (np. cmd, powershell, rundll32).
+* Analiza uruchomień z System32 jest ważna w detekcji malware.
 
 ---
 
-## Menedżer zadań
+## Konta użytkowników i uprawnienia
 
-Poznałem narzędzie służące do monitorowania działania systemu.
+Poznałem:
 
-### Możliwości
+* konta lokalne i Microsoft
+* grupy użytkowników
+* role i uprawnienia
 
-- zarządzanie procesami,
-- monitorowanie wydajności,
-- kontrola aplikacji startowych,
-- analiza usług i sesji użytkowników.
+### SOC perspective
 
-### Czego się nauczyłem
+* Eskalacja uprawnień często zaczyna się od konta standardowego.
+* Konta administratora są głównym celem atakujących.
+* Nietypowe logowania mogą wskazywać na kompromitację konta.
 
-- Menedżer zadań jest podstawowym narzędziem diagnostycznym.
-- Pozwala szybko identyfikować problemy z wydajnością systemu.
+---
+
+## UAC (User Account Control)
+
+Zrozumiałem mechanizm UAC:
+
+* kontrola uprawnień administracyjnych
+* wymaganie potwierdzeń działań
+
+### SOC perspective
+
+* UAC może być obchodzony przez malware (bypass techniques).
+* Podniesione uprawnienia są często celem ataków.
+* Monitoring elevation requests może wskazywać na podejrzaną aktywność.
+
+---
+
+## Panel sterowania i Ustawienia
+
+Poznałem narzędzia konfiguracji systemu:
+
+* Control Panel
+* Windows Settings
+
+### SOC perspective
+
+* Zmiany konfiguracji mogą wskazywać na działania atakującego.
+* Wyłączenie zabezpieczeń (np. Defender) jest częstą techniką malware.
+* SOC analizuje zmiany systemowe jako potencjalne IOC.
+
+---
+
+## Task Manager
+
+Poznałem narzędzie do monitorowania systemu:
+
+* procesy
+* wydajność
+* aplikacje startowe
+
+### SOC perspective
+
+* Analiza procesów pozwala wykryć malware (np. nietypowe child processes).
+* High CPU/memory usage może wskazywać na cryptomining.
+* Startup programs są częstym miejscem persistence.
 
 ---
 
 ## Podsumowanie
 
-W tej części zdobyłem wiedzę z zakresu:
+W tej części zdobyłem podstawową wiedzę o systemie Windows, jednak w podejściu ukierunkowanym na cyberbezpieczeństwo:
 
-- edycji systemu Windows,
-- interfejsu graficznego,
-- systemu plików NTFS,
-- katalogu System32,
-- zarządzania użytkownikami i uprawnieniami,
-- mechanizmu UAC,
-- konfiguracji systemu,
-- monitorowania procesów.
+* zrozumiałem kluczowe komponenty systemu,
+* przeanalizowałem ich znaczenie z perspektywy SOC,
+* zacząłem łączyć funkcje systemu z potencjalnymi technikami ataków.
 
 ---
 
 ## Wnioski końcowe
 
-Windows Fundamentals Part 1 zapewnił mi solidne podstawy działania systemu Windows z perspektywy administracyjnej oraz bezpieczeństwa. Wiedza ta będzie niezbędna w dalszej nauce cyberbezpieczeństwa, administracji systemami oraz analizy incydentów.Windows Fundamentals Part 1 zapewnił mi solidne podstawy działania systemu Windows z perspektywy administracyjnej oraz bezpieczeństwa. Wiedza ta będzie niezbędna w dalszej nauce cyberbezpieczeństwa, administracji systemami oraz analizy incydentów.
-
-
+Windows Fundamentals Part 1 stanowi fundament do dalszej nauki w obszarze cyberbezpieczeństwa i pracy w SOC. Pozwala zrozumieć, jak system działa, oraz w jaki sposób może być analizowany pod kątem incydentów bezpieczeństwa, śladów aktywności użytkownika oraz potencjalnych działań atakujących.
