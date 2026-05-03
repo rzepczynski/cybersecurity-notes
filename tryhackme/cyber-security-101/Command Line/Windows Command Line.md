@@ -28,7 +28,7 @@ ver
 
 Polecenie wyświetla aktualną wersję zainstalowanego systemu Windows.
 
-
+<img width="959" height="933" alt="ver" src="https://github.com/user-attachments/assets/576f4417-12d4-4cc7-8aad-eb23652ce215" />
 
 ---
 
@@ -42,7 +42,7 @@ type C:\Treasure\Hunt\flag.txt
 
 W praktyce jest ono bardzo przydatne podczas analizy plików konfiguracyjnych, logów oraz artefaktów bezpieczeństwa.
 
-
+<img width="920" height="157" alt="type" src="https://github.com/user-attachments/assets/1d46e6e5-8177-459b-a491-d8e1e6ed392b" />
 
 ---
 
@@ -66,7 +66,7 @@ taskkill /PID 1516
 
 Polecenie kończy proces na podstawie jego identyfikatora PID. Jest to niezwykle przydatne podczas reagowania na podejrzaną aktywność lub zamykania zawieszonych aplikacji.
 
-
+<img width="952" height="278" alt="tasklist,taskkill" src="https://github.com/user-attachments/assets/d4cdc90d-481a-4b9e-9e8d-18bc84dce1b8" />
 
 ---
 
