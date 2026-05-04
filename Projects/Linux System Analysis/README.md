@@ -40,7 +40,7 @@ cat /etc/passwd
 
 Pozwala to zidentyfikować konta systemowe oraz potencjalnie podejrzanych użytkowników.
 
-![users](images/users.png)
+![users](Images/users.png)
 
 ---
 
@@ -54,7 +54,7 @@ ls -la
 
 Pozwala to wykryć nieprawidłowe konfiguracje dostępu.
 
-![permissions](images/permissions.png)
+![permissions](Images/permissions.png)
 
 ---
 
@@ -68,7 +68,7 @@ ps aux
 
 Dzięki temu można zidentyfikować podejrzane aplikacje działające w systemie.
 
-![processes](images/processes.png)
+![processes](Images/processes.png)
 
 ---
 
@@ -80,7 +80,7 @@ top
 
 Pozwala zobaczyć najbardziej obciążające procesy.
 
-![top](images/top.png)
+![top](Images/top.png)
 
 ---
 
@@ -92,7 +92,7 @@ ss -tuln
 
 Sprawdziłem otwarte porty oraz usługi nasłuchujące.
 
-![ports](images/ports.png)
+![ports](Images/ports.png)
 
 ---
 
@@ -104,7 +104,7 @@ cat /var/log/syslog | tail
 
 Logi są kluczowe w analizie incydentów bezpieczeństwa.
 
-![logs](images/logs.png)
+![logs](Images/logs.png)
 
 ---
 
@@ -116,7 +116,7 @@ history
 
 Pozwala przeanalizować działania użytkownika.
 
-![history](images/history.png)
+![history](Images/history.png)
 
 ---
 
