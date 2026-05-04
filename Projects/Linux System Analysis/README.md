@@ -26,7 +26,7 @@ hostname
 pwd
 ```
 
-![system](images/system-info.png)
+![System info](images/system-info.png)
 
 ---
 
