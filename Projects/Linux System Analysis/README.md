@@ -4,6 +4,8 @@
 
 Celem projektu była podstawowa analiza systemu Linux z perspektywy cyberbezpieczeństwa. Skupiłem się na identyfikacji użytkowników, procesów, usług oraz potencjalnych punktów analizy w systemie.
 
+Projekt odzwierciedla podstawowe działania wykonywane przez analityka SOC podczas wstępnej analizy systemu po potencjalnym incydencie.
+
 ---
 
 ## Środowisko
@@ -17,7 +19,7 @@ Celem projektu była podstawowa analiza systemu Linux z perspektywy cyberbezpiec
 
 ### Informacje o systemie
 
-Sprawdziłem podstawowe informacje o użytkowniku i systemie:
+Sprawdziłem podstawowe informacje o użytkowniku oraz środowisku systemowym:
 
 ```bash
 whoami
@@ -26,97 +28,121 @@ hostname
 pwd
 ```
 
+Na podstawie wyników potwierdziłem aktualnego użytkownika oraz kontekst pracy w systemie.
+
 ![System info](Images/system-info.png)
 
 ---
 
 ### Użytkownicy
 
-Przeanalizowałem listę użytkowników:
+Przeanalizowałem listę użytkowników systemowych:
 
 ```bash
 cat /etc/passwd
 ```
 
-Pozwala to zidentyfikować konta systemowe oraz potencjalnie podejrzanych użytkowników.
+Zidentyfikowałem standardowe konta systemowe (np. root, daemon, systemd) oraz konto użytkownika.
 
-![users](Images/users.png)
+Nie zaobserwowałem podejrzanych ani niestandardowych kont, które mogłyby wskazywać na nieautoryzowany dostęp.
+
+![Users](Images/users.png)
 
 ---
 
 ### Uprawnienia i pliki
 
-Sprawdziłem uprawnienia plików:
+Sprawdziłem uprawnienia plików w bieżącym katalogu:
 
 ```bash
 ls -la
 ```
 
-Pozwala to wykryć nieprawidłowe konfiguracje dostępu.
+Pozwoliło to zweryfikować dostęp do plików oraz wykryć potencjalnie niebezpieczne konfiguracje (np. nadmierne uprawnienia).
 
-![permissions](Images/permissions.png)
+Nie zaobserwowano plików z podejrzanymi uprawnieniami.
+
+![Permissions](Images/permissions.png)
 
 ---
 
 ### Procesy
 
-Wyświetliłem wszystkie procesy:
+Wyświetliłem wszystkie aktywne procesy:
 
 ```bash
 ps aux
 ```
 
-Dzięki temu można zidentyfikować podejrzane aplikacje działające w systemie.
+Analiza procesów pozwoliła na identyfikację uruchomionych usług oraz aplikacji.
 
-![processes](Images/processes.png)
+Nie zauważono procesów o podejrzanych nazwach ani nadmiernym wykorzystaniu zasobów.
+
+![Processes](Images/processes.png)
 
 ---
 
 ### Obciążenie systemu
 
+Sprawdziłem obciążenie systemu w czasie rzeczywistym:
+
 ```bash
 top
 ```
 
-Pozwala zobaczyć najbardziej obciążające procesy.
+Monitorowanie pozwala szybko wykryć procesy zużywające nadmierne zasoby CPU lub RAM.
 
-![top](Images/top.png)
+System działał stabilnie, bez anomalii wydajnościowych.
+
+![System Load](Images/top.png)
 
 ---
 
 ### Porty i połączenia
 
+Sprawdziłem otwarte porty oraz usługi nasłuchujące:
+
 ```bash
 ss -tuln
 ```
 
-Sprawdziłem otwarte porty oraz usługi nasłuchujące.
+Pozwoliło to określić, które usługi są dostępne z sieci.
 
-![ports](Images/ports.png)
+Nie wykryto nietypowych ani nieznanych portów mogących wskazywać na złośliwe oprogramowanie.
+
+![Ports](Images/ports.png)
 
 ---
 
 ### Logi systemowe
 
+Przeanalizowałem ostatnie wpisy logów systemowych:
+
 ```bash
 cat /var/log/syslog | tail
 ```
 
-Logi są kluczowe w analizie incydentów bezpieczeństwa.
+Logi są kluczowym źródłem informacji podczas analizy incydentów.
 
-![logs](Images/logs.png)
+Nie zaobserwowano błędów ani wpisów sugerujących próby nieautoryzowanego dostępu.
+
+![Logs](Images/logs.png)
 
 ---
 
 ### Historia poleceń
 
+Sprawdziłem historię poleceń użytkownika:
+
 ```bash
 history
 ```
 
-Pozwala przeanalizować działania użytkownika.
+Pozwala to przeanalizować działania wykonywane w systemie.
 
-![history](Images/history.png)
+Nie wykryto podejrzanych lub nietypowych poleceń.
+
+![History](Images/history.png)
 
 ---
 
@@ -124,15 +150,49 @@ Pozwala przeanalizować działania użytkownika.
 
 Podczas analizy systemu:
 
-- zidentyfikowałem użytkowników systemowych  
-- przeanalizowałem aktywne procesy  
-- sprawdziłem otwarte porty  
-- przejrzałem logi systemowe  
+- zidentyfikowałem użytkowników systemowych i zweryfikowałem brak podejrzanych kont  
+- przeanalizowałem aktywne procesy i nie wykryłem anomalii  
+- sprawdziłem otwarte porty — brak nieznanych usług  
+- przejrzałem logi systemowe — brak oznak naruszenia  
+- zweryfikowałem historię poleceń użytkownika  
 
-System nie wykazywał oczywistych oznak nieautoryzowanej aktywności, jednak powyższe kroki stanowią podstawę analizy bezpieczeństwa systemu Linux.
+System nie wykazywał oznak kompromitacji ani nieautoryzowanej aktywności.
+
+---
+
+## Potencjalne zagrożenia
+
+Mimo braku wykrytych anomalii, podczas analizy warto zwrócić uwagę na:
+
+- możliwość ukrywania procesów przez rootkity  
+- nieautoryzowane zmiany w logach systemowych  
+- usługi nasłuchujące na nietypowych portach  
+- błędne konfiguracje uprawnień plików  
+- aktywność w katalogach takich jak `/tmp`  
+
+---
+
+## Znaczenie w cyberbezpieczeństwie
+
+Przeprowadzona analiza odzwierciedla podstawowe działania wykonywane przez:
+
+- Junior SOC Analyst  
+- Incident Responder  
+- Blue Team Specialist  
+- System Administrator  
+
+Umiejętność analizy systemu Linux jest kluczowa podczas wykrywania zagrożeń oraz reagowania na incydenty.
 
 ---
 
 ## Podsumowanie
 
-Projekt pozwolił mi przećwiczyć podstawową analizę systemu Linux z perspektywy cyberbezpieczeństwa. Zdobyte umiejętności stanowią fundament do dalszej nauki w kierunku SOC Analyst oraz Incident Response.
+Projekt pozwolił mi przećwiczyć podstawową analizę systemu Linux w praktyce.
+
+Zdobyte umiejętności stanowią fundament do dalszej nauki w kierunku:
+
+- SOC Analyst  
+- Incident Response  
+- Digital Forensics  
+
+oraz pracy z bardziej zaawansowanymi narzędziami bezpieczeństwa.
