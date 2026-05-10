@@ -111,14 +111,14 @@ Funkcja „Follow Stream” pozwala analizować:
 
 ## Statistics
 
-Wireshark posiada funkcje statystyczne umożliwiające analizę ruchu sieciowego.
+Przeanalizowano statystyki ruchu sieciowego dostępne w Wireshark.
 
-Możliwe jest sprawdzanie:
+Możliwe było sprawdzenie:
 
-- ilości pakietów  
-- używanych protokołów  
+- liczby pakietów  
 - aktywności hostów  
-- obciążenia sieci  
+- używanych protokołów  
+- informacji o ruchu sieciowym
 
 <img width="959" height="962" alt="statistics" src="https://github.com/user-attachments/assets/54822d7b-95c7-4662-8404-1ee4333784f8" />
 
@@ -139,7 +139,7 @@ Przykłady:
 
 ---
 
-## Analiza daty i czasu pakietów
+## Analiza czasu przechwycenia pakietów
 
 Wireshark umożliwia analizę czasu przechwycenia pakietów.
 
@@ -163,7 +163,7 @@ W ramach modułu poznano:
 - analizę sesji komunikacyjnych  
 - podstawowe funkcje statystyczne  
 
-Poznano również zastosowanie Wireshark w analizie bezpieczeństwa sieciowego.
+Poznano również podstawowe techniki analizy ruchu sieciowego wykorzystywane w cyberbezpieczeństwie.
 
 ---
 
