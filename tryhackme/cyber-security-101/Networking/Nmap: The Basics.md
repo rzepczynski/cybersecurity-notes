@@ -45,7 +45,7 @@ nmap -p- 10.112.185.239
 
 Opcja `-p-` skanuje wszystkie porty TCP (1–65535).
 
-Podczas analizy wykryto otwartą usługę HTTP działającą na porcie `8008`.
+Wykryto otwarty port 8008, co wskazywało na działającą usługę HTTP.
 
 Następnie otwarto usługę w przeglądarce:
 
@@ -70,6 +70,14 @@ http://10.112.185.239:8008/
 - wykrywanie otwartych portów
 - identyfikacja usług sieciowych
 - analiza dostępnych serwisów
+
+---
+
+## Możliwe zastosowanie
+
+- identyfikacja usług w sieci
+- wykrywanie niepotrzebnie otwartych portów
+- rekonesans infrastruktury
 
 ---
 
