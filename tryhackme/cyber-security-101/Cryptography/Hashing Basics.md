@@ -205,6 +205,15 @@ Kodowanie Base64 jest często spotykane podczas:
 
 ---
 
+## Czego się nauczyłem
+
+- generować i analizować hashe SHA256
+- używać Hashcat do podstawowego password crackingu
+- sprawdzać integralność plików
+- rozpoznawać zastosowania Base64
+
+---
+
 # Wnioski
 
 Podczas wykonywania pokoju:
