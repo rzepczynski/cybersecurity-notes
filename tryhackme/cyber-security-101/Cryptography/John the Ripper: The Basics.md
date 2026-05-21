@@ -131,7 +131,7 @@ Złożone hasła oraz MFA znacząco zwiększają poziom bezpieczeństwa kont.
 
 Pokój zapewnił praktyczne wprowadzenie do pracy z John the Ripper oraz pokazał, w jaki sposób specjaliści cybersecurity mogą testować siłę haseł przy użyciu rzeczywistych technik.
 
-Ćwiczenia podkreśliły znaczenie:
+Pokój pokazał jak łatwo można złamać słabe hasła przy użyciu gotowych wordlist.
 
 - bezpiecznego przechowywania haseł,
 - silnych polityk haseł,
