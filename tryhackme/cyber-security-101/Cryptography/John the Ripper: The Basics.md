@@ -2,197 +2,138 @@
 
 ## Opis
 
-Notatki z pokoju **John the Ripper: The Basics** na platformie TryHackMe.  
-Pokój wprowadza do podstaw password crackingu oraz wykorzystania narzędzia John the Ripper do łamania hashy i odzyskiwania haseł.
+Ten pokój wprowadzał do podstaw łamania haseł za pomocą narzędzia John the Ripper.  
+Ćwiczenia skupiały się na identyfikacji typów hashy, przeprowadzaniu ataków słownikowych oraz zrozumieniu, w jaki sposób słabe hasła mogą zostać wykorzystane podczas testów bezpieczeństwa.
 
-John the Ripper jest jednym z najpopularniejszych narzędzi wykorzystywanych podczas:
-
-- testów penetracyjnych  
-- audytów bezpieczeństwa  
-- analiz powłamaniowych  
-- oceny siły haseł  
-- działań Red Team i Blue Team  
+Pokój pokazał również znaczenie silnych polityk haseł oraz bezpiecznego przechowywania danych uwierzytelniających.
 
 ---
 
-## Środowisko
+# Cele
 
-- Platforma: TryHackMe  
-- System: Linux AttackBox  
-- Narzędzia:
-  - John the Ripper
-  - hash-id.py
-  - rockyou.txt
-
----
-
-# Zakres materiału
-
-Podczas wykonywania pokoju poznano:
-
-- podstawowe pojęcia związane z password crackingiem  
-- rozpoznawanie typów hashy  
-- łamanie hashy MD5 oraz SHA512  
-- wykorzystanie wordlist  
-- analizę hashy systemów Linux  
-- podstawy odzyskiwania haseł  
+- Zrozumienie podstaw łamania haseł
+- Identyfikacja popularnych typów hashy
+- Używanie John the Ripper z odpowiednimi formatami
+- Przeprowadzanie ataków słownikowych przy użyciu wordlist
+- Łamanie hashy systemów Linux
+- Zrozumienie zagrożeń wynikających ze słabych haseł
 
 ---
 
-# Zadania
+# Wykorzystane narzędzia
 
-## Task 1 — Introduction
-
-Wprowadzenie do narzędzia John the Ripper oraz podstaw password crackingu.
-
-Omówiono zastosowanie narzędzia podczas testów bezpieczeństwa oraz analiz bezpieczeństwa haseł.
-
----
-
-## Task 2 — Basic Terms
-
-Poznano podstawowe pojęcia związane z hashingiem oraz password crackingiem:
-
-- hash  
-- salt  
-- wordlist  
-- dictionary attack  
-- brute force  
+- John the Ripper
+- hash-id
+- Linux CLI
+- rockyou.txt
 
 ---
 
-## Task 3 — Setting Up Your System
+# Identyfikacja Hashy
 
-Przygotowano środowisko pracy oraz narzędzia potrzebne do analizy hashy.
+Przed próbą złamania hasha ważne jest określenie, jaki algorytm został użyty do jego wygenerowania.
 
-Rozpoznanie typu hasha:
+## Użyta komenda
 
 ```bash
 python3 hash-id.py
 ```
 
-Screenshot:
+## Wyjaśnienie
 
-<img width="1236" height="486" alt="1" src="https://github.com/user-attachments/assets/20d11f47-b573-4af1-9c59-56b24957cf4f" />
+- Uruchamia narzędzie `hash-id`
+- Próbuje rozpoznać algorytm haszujący
+- Pomaga dobrać odpowiedni format dla John the Ripper
 
-### Znaczenie w cyberbezpieczeństwie
+## Screenshot
 
-Identyfikacja typu hasha jest kluczowa przed rozpoczęciem password crackingu, ponieważ różne algorytmy wymagają różnych metod ataku.
+<img width="1236" height="486" alt="1" src="https://github.com/user-attachments/assets/ef1c6b51-475d-4a46-8e46-e0abcc759229" />
 
 ---
 
-## Task 4 — Cracking Basic Hashes
+# Łamanie Hashy MD5
 
-Łamanie podstawowego hasha MD5 przy użyciu słownika `rockyou.txt`.
+John the Ripper umożliwia przeprowadzanie ataków słownikowych z wykorzystaniem dużych list haseł, takich jak `rockyou.txt`.
 
-Użyta komenda:
+## Użyta komenda
 
 ```bash
 john --format=raw-md5 --wordlist=/usr/share/wordlists/rockyou.txt hash1.txt
 ```
 
-Screenshot:
+## Wyjaśnienie
 
-<img width="1222" height="221" alt="2" src="https://github.com/user-attachments/assets/8a81c612-83d9-4262-b8ca-d3d3ac42190f" />
+- `--format=raw-md5` określa typ hasha
+- `--wordlist` wskazuje listę haseł używaną podczas ataku
+- `hash1.txt` zawiera docelowy hash
 
-### Znaczenie w cyberbezpieczeństwie
+## Security Insight
 
-Password cracking pozwala wykrywać słabe hasła oraz oceniać bezpieczeństwo systemów uwierzytelniania.
+MD5 jest obecnie uznawany za niebezpieczny algorytm do przechowywania haseł.  
+Szybkie algorytmy haszujące są podatne na ataki słownikowe oraz brute-force.
 
-Techniki tego typu są wykorzystywane podczas:
+## Screenshot
 
-- audytów bezpieczeństwa  
-- testów penetracyjnych  
-- analiz wycieków danych  
-- analiz powłamaniowych  
-
----
-
-## Task 5 — Cracking Windows Authentication Hashes
-
-Omówiono podstawy łamania hashy wykorzystywanych w systemach Windows.
-
-Przedstawiono znaczenie bezpieczeństwa haseł użytkowników domenowych i lokalnych.
+<img width="1222" height="221" alt="2" src="https://github.com/user-attachments/assets/f28b08ad-c377-47c5-9482-ecf8496fa3a8" />
 
 ---
 
-## Task 6 — Cracking /etc/shadow Hashes
+# Łamanie Hashy SHA512Crypt
 
-Łamanie hashy SHA512 przechowywanych w systemie Linux.
+Systemy Linux często przechowują hasła w pliku `/etc/shadow`, wykorzystując silniejsze algorytmy takie jak SHA512Crypt.
 
-Użyta komenda:
+## Użyta komenda
 
 ```bash
-john --wordlist=/usr/share/wordlists/rockyou.txt hash1.txt --format=sha512crypt unshadowed.txt
+john --wordlist=/usr/share/wordlists/rockyou.txt --format=sha512crypt unshadowed.txt
 ```
 
-Screenshot:
+## Wyjaśnienie
 
-<img width="1242" height="242" alt="3" src="https://github.com/user-attachments/assets/b99d9cd4-24d4-4b81-b13e-fad75164170f" />
+- Używa formatu `sha512crypt`
+- Wykonuje atak słownikowy na hashe systemu Linux
+- `unshadowed.txt` zawiera połączone dane z `/etc/passwd` oraz `/etc/shadow`
 
-### Znaczenie w cyberbezpieczeństwie
+## Security Insight
 
-Plik `/etc/shadow` zawiera hashe użytkowników systemu Linux.  
-Uzyskanie dostępu do tych danych może prowadzić do przejęcia kont użytkowników oraz eskalacji uprawnień.
+Nawet silne algorytmy haszujące stają się podatne, gdy użytkownicy używają słabych haseł.  
+Złożone hasła oraz MFA znacząco zwiększają poziom bezpieczeństwa kont.
 
----
+## Screenshot
 
-## Task 7 — Single Crack Mode
-
-Poznano podstawy trybu Single Crack Mode wykorzystywanego do inteligentnego generowania kandydatów na hasła.
-
----
-
-## Task 8 — Custom Rules
-
-Omówiono wykorzystanie custom rules do modyfikowania słowników oraz zwiększania skuteczności password crackingu.
+<img width="1242" height="242" alt="3" src="https://github.com/user-attachments/assets/cae976f5-76dc-4b66-8d30-09ae2e039dee" />
 
 ---
 
-## Task 9 — Cracking Password Protected Zip Files
+# Najważniejsze Wnioski
 
-Poznano podstawy odzyskiwania haseł do archiwów ZIP.
-
----
-
-## Task 10 — Cracking Password-Protected RAR Archives
-
-Omówiono podstawy łamania zabezpieczeń archiwów RAR.
-
----
-
-## Task 11 — Cracking SSH Keys with John
-
-Przedstawiono możliwość odzyskiwania haseł zabezpieczających klucze SSH.
+- Przed próbą łamania hasha należy rozpoznać jego typ
+- Słabe hasła są podatne na ataki słownikowe
+- MD5 nie powinien być używany do przechowywania haseł
+- Linux wykorzystuje SHA512Crypt w pliku `/etc/shadow`
+- Silne hasła i MFA znacząco poprawiają bezpieczeństwo
+- John the Ripper jest skutecznym narzędziem do audytu bezpieczeństwa haseł
 
 ---
 
-## Task 12 — Further Reading
+# Umiejętności
 
-Dodatkowe materiały dotyczące password crackingu oraz narzędzia John the Ripper.
-
----
-
-# Wnioski
-
-Podczas wykonywania pokoju:
-
-- identyfikowano typy hashy  
-- używano John the Ripper do password crackingu  
-- analizowano bezpieczeństwo haseł  
-- pracowano z hashami Linux i Windows  
-- wykorzystywano wordlisty do odzyskiwania haseł  
+- Audyt bezpieczeństwa haseł
+- Identyfikacja hashy
+- Obsługa Linux CLI
+- Ataki słownikowe
+- Analiza bezpieczeństwa haseł
+- Praca z narzędziami cybersecurity
 
 ---
 
-# Znaczenie w cyberbezpieczeństwie
+# Podsumowanie
 
-Znajomość password crackingu jest istotna podczas:
+Pokój zapewnił praktyczne wprowadzenie do pracy z John the Ripper oraz pokazał, w jaki sposób specjaliści cybersecurity mogą testować siłę haseł przy użyciu rzeczywistych technik.
 
-- audytów bezpieczeństwa  
-- testów penetracyjnych  
-- działań Red Team  
-- analiz incydentów bezpieczeństwa  
-- oceny polityki haseł w organizacji  
+Ćwiczenia podkreśliły znaczenie:
 
-Umiejętność pracy z hashami i narzędziami typu John the Ripper pomaga wykrywać słabe zabezpieczenia oraz poprawiać bezpieczeństwo systemów.
+- bezpiecznego przechowywania haseł,
+- silnych polityk haseł,
+- praktyk defensywnego bezpieczeństwa,
+- oraz regularnego audytu haseł w środowiskach IT.
